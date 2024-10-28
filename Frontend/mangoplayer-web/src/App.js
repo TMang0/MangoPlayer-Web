@@ -17,7 +17,7 @@ function App() {
   const fetchPopularSongs = async () => {
     try {
       const response = await fetch(
-        'https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails&chart=mostPopular&regionCode=US&videoCategoryId=10&maxResults=10&key=AIzaSyARZBa1ZmnAZLFBjgx698AyNmZpvtLMSlk'
+        `https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails&chart=mostPopular&regionCode=US&videoCategoryId=10&maxResults=12&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`
       );
       const data = await response.json();
       const formattedSongs = data.items.map((item) => ({
